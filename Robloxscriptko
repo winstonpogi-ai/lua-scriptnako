@@ -1,0 +1,36 @@
+-- Mag-create ng ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Mag-create ng Frame para sa Menu
+local menuFrame = Instance.new("Frame")
+menuFrame.Size = UDim2.new(0, 300, 0, 200)
+menuFrame.Position = UDim2.new(0.5, -150, 0.5, -100)
+menuFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+menuFrame.Parent = screenGui
+
+-- Magdagdag ng Start Button
+local startButton = Instance.new("TextButton")
+startButton.Size = UDim2.new(0, 200, 0, 50)
+startButton.Position = UDim2.new(0.5, -100, 0.5, -60)
+startButton.Text = "Start Game"
+startButton.Parent = menuFrame
+
+-- Magdagdag ng Exit Button
+local exitButton = Instance.new("TextButton")
+exitButton.Size = UDim2.new(0, 200, 0, 50)
+exitButton.Position = UDim2.new(0.5, -100, 0.5, 60)
+exitButton.Text = "Exit"
+exitButton.Parent = menuFrame
+
+-- Function para sa Start Button
+startButton.MouseButton1Click:Connect(function()
+    print("Game Starting!")
+    menuFrame.Visible = false  -- Itago ang menu
+end)
+
+-- Function para sa Exit Button
+exitButton.MouseButton1Click:Connect(function()
+    print("Exiting Game...")
+    game:Shutdown()  -- Isara ang game
+end)
